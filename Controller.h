@@ -10,4 +10,7 @@
 }
 - (IBAction)decrease;
 - (IBAction)increase;
+
+- (void)awakeFromNib;
+
 @end
