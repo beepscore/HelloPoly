@@ -6,8 +6,9 @@
     IBOutlet UIButton *decreaseButton;
     IBOutlet UIButton *increaseButton;
     IBOutlet UILabel *numberOfSidesLabel;
-    IBOutlet PolygonShape *polygon;
+    IBOutlet PolygonShape *myPolygonOutlet;
 }
+
 - (IBAction)decrease;
 - (IBAction)increase;
 

@@ -4,7 +4,12 @@
 //
 //  Created by Steve Baker on 7/12/09.
 //  Copyright 2009 Beepscore LLC. All rights reserved.
-// for #import, enclose system header in < >, user header in " "
+
+// Statements in a .h header file are exposed.  Others can see properties, methods, imports.
+// Statements in a .m implementation file are encapsulated.  Others can't see instance variables.
+// To #import framework classes, delimit with < >.
+// To #import user header, delimit with " ".
+// .m file imports .h file of the same name.
 #import "PolygonShape.h"
 
 @implementation PolygonShape
@@ -22,8 +27,7 @@
     return [polygonNames objectAtIndex: numSides];
 }
 
-// 9. In order to verify your memory management techniques, implement a dealloc method
-// Note- never call dealloc explicitly except in [super dealloc], system will call it.
+// Note- never call dealloc explicitly except in [super dealloc]. Let the system call it.
 - (void)dealloc { 
     // Do any cleanup that’s necessary
     NSLog(@"Deallocating %@", self.name);

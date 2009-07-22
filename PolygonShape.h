@@ -6,9 +6,10 @@
 //
 //#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
+//  TODO  I thought to import Controller.h to access text label.  It made a build error.  Why?
+// #import "Controller.h"
 
-@interface PolygonShape : NSObject
-{
+@interface PolygonShape : NSObject {
     // instance variables 
     int numberOfSides;
     int minimumNumberOfSides;
@@ -26,7 +27,6 @@
 // methods
 + (NSString*)polygonNameWithNumberOfSides:(int)numSides;
 
-// 9. In order to verify your memory management techniques, implement a dealloc method
 // override default dealloc method
 - (void)dealloc;
 
