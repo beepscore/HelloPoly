@@ -13,5 +13,6 @@
 - (IBAction)increase;
 
 - (void)awakeFromNib;
+- (void)updateInterface;
 
 @end
