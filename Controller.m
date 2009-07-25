@@ -14,11 +14,16 @@
     // Do any cleanup that’s necessary
     NSLog(@"Deallocating %@", self.description);
     // Explicitly release objects that self was using such as instance variables
-    // Don't need to release int types, they aren't objects
+    // Release any instance variables declared as IBOutlets.  See 0607-FollowUpNotes.pdf
+    // Don't need to release int types, they aren't objects.
     // Defensive programming - set pointer to nil after release instance.
     // After everyone releases references, that portion of heap memory may be written to by anyone.
     // Accidentally using the pointer to the old location could work or could crash.
-    // These bugs can show up intermittently/infrequently and can be very hard to debug.    
+    // These bugs can show up intermittently/infrequently and can be very hard to debug.
+    [decreaseButton release];
+    decreaseButton = nil;
+    [increaseButton release];
+    increaseButton = nil;
     [myPolygonShape release];
     myPolygonShape = nil;
 
