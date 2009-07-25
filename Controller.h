@@ -12,12 +12,13 @@
     IBOutlet PolygonShape *myPolygonShape;
 }
 
-- (void)awakeFromNib;
-// override default dealloc method
-// TODO should I delete this from header, only visible from inside .m?
-- (void)dealloc;
 - (IBAction)decrease;
 - (IBAction)increase;
 - (void)updateInterface;
+
+// TODO should I delete these from header, only visible from inside .m?
+// override default dealloc method
+//- (void)dealloc;
+//- (void)awakeFromNib;
 
 @end

@@ -10,9 +10,14 @@
 #import "PolygonShape.h"
 
 @interface PolygonView : UIView {
+    // instance variables 
     // reference to Model
     IBOutlet PolygonShape *myPolygonShape;
-
 }
+
+// properties
+
+// methods
++ (NSArray *)pointsForPolygonInRect:(CGRect)rect numberOfSides:(int)numberOfSides; 
 
 @end
