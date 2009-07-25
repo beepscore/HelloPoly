@@ -5,8 +5,6 @@
 //
 //#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
-//  TODO  I thought to import Controller.h to access text label.  It made a build error.  Why?
-// #import "Controller.h"
 
 @interface PolygonShape : NSObject {
     // instance variables 

@@ -60,15 +60,13 @@
 - (void)dealloc { 
     // Do any cleanup that’s necessary
     NSLog(@"Deallocating %@", self.name);
-    // TODO explicitly release objects that self was using such as instance variables
+    // Release objects that self was using such as instance variables
+    // Don't try to release int types, they aren't objects.
     [self.name release];
     //self.name = nil;  // this gives error - either readonly property or no setter found
     [self.description release];
     //self.description = nil;  // this gives error - either readonly property or no setter found
     // TODO release polygonNames array?
-
-    // Don't need to release int types, they aren't objects?
-    // [numberOfSides release];   // this gives error- invalid receiver type 'int'
 
     // Last, dealloc super class
     // see http://stackoverflow.com/questions/1030766/call-release-in-class-or-subclass
