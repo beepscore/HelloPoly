@@ -27,18 +27,17 @@
 // methods
 + (NSString*)polygonNameWithNumberOfSides:(int)numSides;
 
+// override default init method inherited fromm superclass NSObject
+- (id)init;
+- (id)initWithNumberOfSides:(int)sides;
+- (id)initWithNumberOfSides:(int)sides minimumNumberOfSides:(int)min maximumNumberOfSides:(int)max;
+
 // override default dealloc method
 - (void)dealloc;
 
 - (void)setMinimumNumberOfSides:(int)minSides;
 - (void)setMaximumNumberOfSides:(int)maxSides;
 - (void)setNumberOfSides:(int)numSides;
-
-// override default init method inherited fromm superclass NSObject
-- (id)init;
-
-- (id)initWithNumberOfSides:(int)sides;
-- (id)initWithNumberOfSides:(int)sides minimumNumberOfSides:(int)min maximumNumberOfSides:(int)max;
 
 - (NSString*)description;
 
