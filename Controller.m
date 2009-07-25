@@ -4,8 +4,26 @@
 - (void)awakeFromNib { 
     [myPolygonShape initWithNumberOfSides:5 
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
-    // TODO should Controller override dealloc to release myPolygonShape object?
     [self updateInterface];
+}
+
+// override default dealloc method
+// see http://stackoverflow.com/questions/1030766/call-release-in-class-or-subclass
+// Never call dealloc explicitly except in [super dealloc]. Let the system call it.
+- (void)dealloc { 
+    // Do any cleanup that’s necessary
+    NSLog(@"Deallocating %@", self.description);
+    // Explicitly release objects that self was using such as instance variables
+    // Don't need to release int types, they aren't objects
+    // Defensive programming - set pointer to nil after release instance.
+    // After everyone releases references, that portion of heap memory may be written to by anyone.
+    // Accidentally using the pointer to the old location could work or could crash.
+    // These bugs can show up intermittently/infrequently and can be very hard to debug.    
+    [myPolygonShape release];
+    myPolygonShape = nil;
+
+    // Last, dealloc super class
+    [super dealloc];
 }
 
 - (IBAction)decrease {

@@ -55,13 +55,17 @@
     return self;
 }
 
+// override default dealloc method
 // Never call dealloc explicitly except in [super dealloc]. Let the system call it.
 - (void)dealloc { 
     // Do any cleanup that’s necessary
     NSLog(@"Deallocating %@", self.name);
     // TODO explicitly release objects that self was using such as instance variables
     [self.name release];
+    //self.name = nil;  // this gives error - either readonly property or no setter found
     [self.description release];
+    //self.description = nil;  // this gives error - either readonly property or no setter found
+    // TODO release polygonNames array?
 
     // Don't need to release int types, they aren't objects?
     // [numberOfSides release];   // this gives error- invalid receiver type 'int'
@@ -120,7 +124,9 @@
     return (M_PI * (self.angleInDegrees / 180.));    
 }
 
-- (NSString*)name {    
+- (NSString*)name { 
+    //      receiver == PolygonShape class
+    //                   message == action == (polygonNameWithNumberOfSides method + argument)
     return [PolygonShape polygonNameWithNumberOfSides: self.numberOfSides];
 }
 

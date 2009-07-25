@@ -13,6 +13,8 @@
 }
 
 - (void)awakeFromNib;
+// override default dealloc method
+- (void)dealloc;
 - (IBAction)decrease;
 - (IBAction)increase;
 - (void)updateInterface;
