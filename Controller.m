@@ -4,6 +4,7 @@
 - (void)awakeFromNib { 
     [myPolygonShape initWithNumberOfSides:5 
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
+    // TODO should Controller override dealloc to release myPolygonShape object?
     [self updateInterface];
 }
 

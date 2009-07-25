@@ -55,13 +55,19 @@
     return self;
 }
 
-// Note- never call dealloc explicitly except in [super dealloc]. Let the system call it.
+// Never call dealloc explicitly except in [super dealloc]. Let the system call it.
 - (void)dealloc { 
     // Do any cleanup that’s necessary
     NSLog(@"Deallocating %@", self.name);
-    // TODO explicitly release instance variables [name release] ?? 
+    // TODO explicitly release objects that self was using such as instance variables
+    [self.name release];
+    [self.description release];
 
-    // when we’re done, call super to clean us up 
+    // Don't need to release int types, they aren't objects?
+    // [numberOfSides release];   // this gives error- invalid receiver type 'int'
+
+    // Last, dealloc super class
+    // see http://stackoverflow.com/questions/1030766/call-release-in-class-or-subclass
     [super dealloc];
 }
 
