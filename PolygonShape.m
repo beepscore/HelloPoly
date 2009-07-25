@@ -1,6 +1,5 @@
 //
 //  PolygonShape.m
-//  WhatATool
 //
 //  Created by Steve Baker on 7/12/09.
 //  Copyright 2009 Beepscore LLC. All rights reserved.
@@ -36,14 +35,23 @@
     return self;
 }
 
-- (id)initWithNumberOfSides:(int)sides {    
-    return [self initWithNumberOfSides:sides minimumNumberOfSides:3 maximumNumberOfSides:10];
+- (id)initWithNumberOfSides:(int)sides { 
+    // allow superclass to initialize its state first
+    self = [super init];    
+    if (self) {
+        [self initWithNumberOfSides:sides minimumNumberOfSides:3 maximumNumberOfSides:10];
+    }
+    return self;
 }
 
 - (id)initWithNumberOfSides:(int)sides minimumNumberOfSides:(int)min maximumNumberOfSides:(int)max {    
-    [self setMinimumNumberOfSides: min];
-    [self setMaximumNumberOfSides: max];
-    [self setNumberOfSides: sides];
+    // allow superclass to initialize its state first
+    self = [super init];    
+    if (self) {
+        [self setMinimumNumberOfSides: min];
+        [self setMaximumNumberOfSides: max];
+        [self setNumberOfSides: sides];
+    }
     return self;
 }
 

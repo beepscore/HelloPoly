@@ -1,5 +1,4 @@
 //  PolygonShape.h
-//  WhatATool
 //
 //  Created by Steve Baker on 7/12/09.
 //  Copyright 2009 Beepscore LLC. All rights reserved.
