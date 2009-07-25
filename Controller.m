@@ -14,7 +14,7 @@
 }
 
 - (void)awakeFromNib { 
-    [myPolygonOutlet initWithNumberOfSides: numberOfSidesLabel.text.integerValue 
+    [myPolygonOutlet initWithNumberOfSides:5 
                       minimumNumberOfSides:3 maximumNumberOfSides:12];
     [self updateInterface];
 }
@@ -23,7 +23,7 @@
     numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonOutlet.numberOfSides];
     NSLog([myPolygonOutlet description]);
     
-    if (numberOfSidesLabel.text.integerValue > myPolygonOutlet.minimumNumberOfSides) {
+    if (myPolygonOutlet.numberOfSides > myPolygonOutlet.minimumNumberOfSides) {
         decreaseButton.enabled = YES;
         decreaseButton.alpha = 1.0f;
     }
@@ -31,7 +31,7 @@
         decreaseButton.enabled = NO;
         decreaseButton.alpha = 0.5f;
     }
-    if (numberOfSidesLabel.text.integerValue < myPolygonOutlet.maximumNumberOfSides) {
+    if (myPolygonOutlet.numberOfSides < myPolygonOutlet.maximumNumberOfSides) {
         increaseButton.enabled = YES;
         increaseButton.alpha = 1.0f;
     }
