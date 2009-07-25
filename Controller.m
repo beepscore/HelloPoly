@@ -3,27 +3,27 @@
 @implementation Controller
 - (IBAction)decrease {
     NSLog(@"Controller decrease method");
-    myPolygonOutlet.numberOfSides--;
+    myPolygonShape.numberOfSides--;
     [self updateInterface];
 }
 
 - (IBAction)increase {
     NSLog(@"Controller increase method");
-    myPolygonOutlet.numberOfSides++;
+    myPolygonShape.numberOfSides++;
     [self updateInterface];
 }
 
 - (void)awakeFromNib { 
-    [myPolygonOutlet initWithNumberOfSides:5 
+    [myPolygonShape initWithNumberOfSides:5 
                       minimumNumberOfSides:3 maximumNumberOfSides:12];
     [self updateInterface];
 }
 
 - (void)updateInterface { 
-    numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonOutlet.numberOfSides];
-    NSLog([myPolygonOutlet description]);
+    numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonShape.numberOfSides];
+    NSLog([myPolygonShape description]);
     
-    if (myPolygonOutlet.numberOfSides > myPolygonOutlet.minimumNumberOfSides) {
+    if (myPolygonShape.numberOfSides > myPolygonShape.minimumNumberOfSides) {
         decreaseButton.enabled = YES;
         decreaseButton.alpha = 1.0f;
     }
@@ -31,7 +31,7 @@
         decreaseButton.enabled = NO;
         decreaseButton.alpha = 0.5f;
     }
-    if (myPolygonOutlet.numberOfSides < myPolygonOutlet.maximumNumberOfSides) {
+    if (myPolygonShape.numberOfSides < myPolygonShape.maximumNumberOfSides) {
         increaseButton.enabled = YES;
         increaseButton.alpha = 1.0f;
     }
