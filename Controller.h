@@ -14,6 +14,7 @@
 
 - (void)awakeFromNib;
 // override default dealloc method
+// TODO should I delete this from header, only visible from inside .m?
 - (void)dealloc;
 - (IBAction)decrease;
 - (IBAction)increase;
