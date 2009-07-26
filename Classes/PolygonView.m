@@ -20,6 +20,9 @@
     return self;
 }
 
+//  TODO program draws pentagon, drawing doesn't update for new numberOfSides.
+//  Need to initialize myPolyPoints array at each call?
+//  [myPolyPoints release];  // I tried this at end of drawRect method, it gave error
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -48,12 +51,8 @@
     [[UIColor redColor] setFill]; 
     [[UIColor blackColor] setStroke]; 
     CGContextDrawPath (context, kCGPathFillStroke);
-    //  TODO program draws pentagon, drawing doesn't update.
-    //  Need to initialize myPolyPoints array at each call?
-    //  [myPolyPoints release];
 }
 
-// TODO use this method in drawRect
 + (NSArray *)pointsForPolygonInRect:(CGRect)rect numberOfSides:(int)numberOfSides { 
     CGPoint center = CGPointMake(rect.size.width / 2.0, rect.size.height / 2.0); 
     float radius = 0.9 * center.x; 
