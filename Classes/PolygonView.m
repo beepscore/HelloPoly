@@ -26,21 +26,31 @@
     
     // fill background
     [[UIColor yellowColor] set]; 
-    CGRect bounds = CGRectMake(0., 0., 260., 260.);
-    UIRectFill (bounds);
+    UIRectFill (rect);
     
-    //NSArray *myPolyPoints = [self pointsForPolygonInRect:
-    //                            [self bounds]  numberOfSides: myPolygonShape.numberOfSides];
+    NSArray *myPolyPoints = [PolygonView pointsForPolygonInRect: rect
+                                numberOfSides: myPolygonShape.numberOfSides];
     
-    CGContextBeginPath (context); 
-    CGContextMoveToPoint (context, 75, 10); 
-    CGContextAddLineToPoint (context, 10, 150); 
-    CGContextAddLineToPoint (context, 160, 150);
-    
+    CGContextBeginPath (context);
+    // first vertex at index 0
+    CGContextMoveToPoint (context, 
+                          [[myPolyPoints objectAtIndex:0] CGPointValue].x,
+                          [[myPolyPoints objectAtIndex:0] CGPointValue].y); 
+
+    int count = [myPolyPoints count];
+    // start at second vertex at index 1
+    for (int i = 1; i < count; i++) { 
+        CGContextAddLineToPoint (context, 
+                                 [[myPolyPoints objectAtIndex:i] CGPointValue].x, 
+                                 [[myPolyPoints objectAtIndex:i] CGPointValue].y); 
+    }
     CGContextClosePath (context); 
     [[UIColor redColor] setFill]; 
     [[UIColor blackColor] setStroke]; 
-    CGContextDrawPath (context, kCGPathFillStroke); 
+    CGContextDrawPath (context, kCGPathFillStroke);
+    //  TODO program draws pentagon, drawing doesn't update.
+    //  Need to initialize myPolyPoints array at each call?
+    //  [myPolyPoints release];
 }
 
 // TODO use this method in drawRect
