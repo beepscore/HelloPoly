@@ -1,13 +1,17 @@
 #import "Controller.h"
 
 @implementation Controller
-- (void)awakeFromNib { 
+- (void)awakeFromNib {
+
     [myPolygonShape initWithNumberOfSides:5 
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
+    
+    //[myPolygonView initWithFrame:CGRectMake(200., 200., 150., 200.)];
+    [myPolygonView init];
     [self updateInterface];
 }
 
-// override default dealloc method
+// override deault dealloc method
 // see http://stackoverflow.com/questions/1030766/call-release-in-class-or-subclass
 // Never call dealloc explicitly except in [super dealloc]. Let the system call it.
 - (void)dealloc { 
@@ -26,6 +30,8 @@
     increaseButton = nil;
     [myPolygonShape release];
     myPolygonShape = nil;
+    [myPolygonView release];
+    myPolygonView = nil;
 
     // Last, dealloc super class
     [super dealloc];
@@ -45,6 +51,7 @@
 
 - (void)updateInterface { 
     NSLog([myPolygonShape description]);
+    [myPolygonView setNeedsDisplay];
     numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonShape.numberOfSides];
     
     if (myPolygonShape.numberOfSides > myPolygonShape.minimumNumberOfSides) {

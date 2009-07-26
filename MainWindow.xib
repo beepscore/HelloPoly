@@ -40,7 +40,7 @@
 					<object class="IBUIButton" id="62894007">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{20, 81}, {108, 37}}</string>
+						<string key="NSFrame">{{20, 81}, {110, 40}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -73,7 +73,7 @@
 					<object class="IBUIButton" id="691068342">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{187, 81}, {113, 37}}</string>
+						<string key="NSFrame">{{190, 81}, {110, 40}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -92,7 +92,7 @@
 					<object class="IBUILabel" id="77603036">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{231, 40}, {56, 29}}</string>
+						<string key="NSFrame">{{220, 40}, {39, 29}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -130,7 +130,7 @@
 					<object class="IBUIView" id="677343344">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{68, 148}, {160, 230}}</string>
+						<string key="NSFrame">{{20, 180}, {280, 280}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -230,6 +230,14 @@
 					</object>
 					<int key="connectionID">46</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myPolygonView</string>
+						<reference key="source" ref="696480517"/>
+						<reference key="destination" ref="677343344"/>
+					</object>
+					<int key="connectionID">47</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -247,11 +255,11 @@
 						<reference key="object" ref="380026005"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="691068342"/>
 							<reference ref="677343344"/>
-							<reference ref="62894007"/>
 							<reference ref="957438706"/>
 							<reference ref="77603036"/>
+							<reference ref="691068342"/>
+							<reference ref="62894007"/>
 						</object>
 						<reference key="parent" ref="731524118"/>
 					</object>
@@ -379,7 +387,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">46</int>
+			<int key="maxID">47</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -407,6 +415,7 @@
 							<string>decreaseButton</string>
 							<string>increaseButton</string>
 							<string>myPolygonShape</string>
+							<string>myPolygonView</string>
 							<string>numberOfSidesLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -414,6 +423,7 @@
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>PolygonShape</string>
+							<string>PolygonView</string>
 							<string>UILabel</string>
 						</object>
 					</object>

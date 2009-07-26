@@ -20,11 +20,30 @@
     return self;
 }
 
-
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // fill background
+    [[UIColor yellowColor] set]; 
+    CGRect bounds = CGRectMake(0., 0., 260., 260.);
+    UIRectFill (bounds);
+    
+    //NSArray *myPolyPoints = [self pointsForPolygonInRect:
+    //                            [self bounds]  numberOfSides: myPolygonShape.numberOfSides];
+    
+    CGContextBeginPath (context); 
+    CGContextMoveToPoint (context, 75, 10); 
+    CGContextAddLineToPoint (context, 10, 150); 
+    CGContextAddLineToPoint (context, 160, 150);
+    
+    CGContextClosePath (context); 
+    [[UIColor redColor] setFill]; 
+    [[UIColor blackColor] setStroke]; 
+    CGContextDrawPath (context, kCGPathFillStroke); 
 }
 
+// TODO use this method in drawRect
 + (NSArray *)pointsForPolygonInRect:(CGRect)rect numberOfSides:(int)numberOfSides { 
     CGPoint center = CGPointMake(rect.size.width / 2.0, rect.size.height / 2.0); 
     float radius = 0.9 * center.x; 
