@@ -130,7 +130,7 @@
 					<object class="IBUIView" id="677343344">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{20, 180}, {280, 280}}</string>
+						<string key="NSFrame">{{0, 160}, {320, 320}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>

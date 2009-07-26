@@ -1,4 +1,6 @@
 #import "Controller.h"
+#import "PolygonShape.h"
+#import "PolygonView.h"
 
 @implementation Controller
 - (void)awakeFromNib {

@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "PolygonShape.h"
-#import "PolygonView.h"
+@class PolygonShape;
+@class PolygonView;
 
 @interface Controller : NSObject {
     // Controller references to View

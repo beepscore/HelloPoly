@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PolygonShape.h"
+@class PolygonShape;
 
 @interface PolygonView : UIView {
     // instance variables 

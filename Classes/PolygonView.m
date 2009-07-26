@@ -6,6 +6,7 @@
 //  Copyright 2009 Beepscore LLC. All rights reserved.
 //
 #import "PolygonView.h"
+#import "PolygonShape.h"
 
 @implementation PolygonView
 
@@ -24,9 +25,9 @@
 //  Need to initialize myPolyPoints array at each call?
 //  [myPolyPoints release];  // I tried this at end of drawRect method, it gave error
 - (void)drawRect:(CGRect)rect {
+    NSLog(@"drawRect method. myPolygonShape.numberOfSides = %d", myPolygonShape.numberOfSides);
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     // fill background
     [[UIColor yellowColor] set]; 
     UIRectFill (rect);
