@@ -14,6 +14,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		DE5F07C41015CE5A00E022C7 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5F07C31015CE5A00E022C7 /* Controller.m */; };
+		DEAEF3E8101E4BFF00ECE382 /* HelloPolyIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAEF3E7101E4BFF00ECE382 /* HelloPolyIcon57.png */; };
 		DEB27AA31014EEDB000CEE4A /* PolygonShape.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB27AA21014EEDB000CEE4A /* PolygonShape.m */; };
 		DEB9D1A6101BAD980045B369 /* PolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB9D1A5101BAD980045B369 /* PolygonView.m */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		8D1107310486CEB800E47090 /* HelloPoly-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HelloPoly-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		DE5F07C21015CE5A00E022C7 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Controller.h; path = ../Controller.h; sourceTree = "<group>"; };
 		DE5F07C31015CE5A00E022C7 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Controller.m; path = ../Controller.m; sourceTree = "<group>"; };
+		DEAEF3E7101E4BFF00ECE382 /* HelloPolyIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloPolyIcon57.png; sourceTree = "<group>"; };
 		DEB27AA11014EEDA000CEE4A /* PolygonShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PolygonShape.h; path = ../PolygonShape.h; sourceTree = "<group>"; };
 		DEB27AA21014EEDB000CEE4A /* PolygonShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PolygonShape.m; path = ../PolygonShape.m; sourceTree = "<group>"; };
 		DEB9D1A4101BAD980045B369 /* PolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonView.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DEAEF3E7101E4BFF00ECE382 /* HelloPolyIcon57.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* HelloPoly-Info.plist */,
 			);
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				DEAEF3E8101E4BFF00ECE382 /* HelloPolyIcon57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
