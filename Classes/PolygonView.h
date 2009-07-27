@@ -13,6 +13,8 @@
     // instance variables 
     // reference to Model
     IBOutlet PolygonShape *myPolygonShape;
+
+    IBOutlet UILabel *polygonNameLabel;
 }
 
 // properties

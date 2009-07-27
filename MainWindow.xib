@@ -130,7 +130,30 @@
 					<object class="IBUIView" id="677343344">
 						<reference key="NSNextResponder" ref="380026005"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{0, 160}, {320, 320}}</string>
+						<object class="NSMutableArray" key="NSSubviews">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUILabel" id="456081041">
+								<reference key="NSNextResponder" ref="677343344"/>
+								<int key="NSvFlags">1316</int>
+								<string key="NSFrame">{{80, 145}, {160, 30}}</string>
+								<reference key="NSSuperview" ref="677343344"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="IBUIText">polygon name</string>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">1.800000e+01</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<reference key="IBUITextColor" ref="1052133936"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<float key="IBUIMinimumFontSize">1.000000e+01</float>
+								<int key="IBUITextAlignment">1</int>
+							</object>
+						</object>
+						<string key="NSFrame">{{5, 165}, {310, 310}}</string>
 						<reference key="NSSuperview" ref="380026005"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -238,6 +261,14 @@
 					</object>
 					<int key="connectionID">48</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">polygonNameLabel</string>
+						<reference key="source" ref="677343344"/>
+						<reference key="destination" ref="456081041"/>
+					</object>
+					<int key="connectionID">50</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -312,7 +343,16 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">45</int>
 						<reference key="object" ref="677343344"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="456081041"/>
+						</object>
 						<reference key="parent" ref="380026005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">49</int>
+						<reference key="object" ref="456081041"/>
+						<reference key="parent" ref="677343344"/>
 					</object>
 				</object>
 			</object>
@@ -337,6 +377,7 @@
 					<string>41.IBPluginDependency</string>
 					<string>45.CustomClassName</string>
 					<string>45.IBPluginDependency</string>
+					<string>49.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -365,6 +406,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>PolygonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -387,7 +429,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">48</int>
+			<int key="maxID">50</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -472,8 +514,17 @@
 					<string key="className">PolygonView</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">myPolygonShape</string>
-						<string key="NS.object.0">PolygonShape</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>myPolygonShape</string>
+							<string>polygonNameLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>PolygonShape</string>
+							<string>UILabel</string>
+						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>

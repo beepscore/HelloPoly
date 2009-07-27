@@ -23,11 +23,12 @@
 
 - (void)drawRect:(CGRect)rect {
     NSLog(@"drawRect method. myPolygonShape.numberOfSides = %d", myPolygonShape.numberOfSides);
-    // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    // fill background
-    [[UIColor yellowColor] set]; 
-    UIRectFill (rect);
+    // draw background
+    // background fill was set in IB
+    // stroke border
+    [[UIColor blackColor] setStroke]; 
+    UIRectFrame(rect);
     
     NSArray *myPolyPoints = [PolygonView pointsForPolygonInRect: rect
                                 numberOfSides: myPolygonShape.numberOfSides];
@@ -49,6 +50,9 @@
     [[UIColor redColor] setFill]; 
     [[UIColor blackColor] setStroke]; 
     CGContextDrawPath (context, kCGPathFillStroke);
+    
+    // draw label
+    polygonNameLabel.text = myPolygonShape.name; 
 }
 
 + (NSArray *)pointsForPolygonInRect:(CGRect)rect numberOfSides:(int)numberOfSides { 
