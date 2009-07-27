@@ -5,8 +5,16 @@
 @implementation Controller
 - (void)awakeFromNib {
 
-    [myPolygonShape initWithNumberOfSides:5 
+    // see icodeblog.com iPhone Programming Tutorial – Saving/Retrieving Data Using NSUserDefaults
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    // if running app for first time, prefs hasn't been set and the integer value defaults to 0
+    if ([prefs integerForKey: @"numberOfSides"] == 0) {
+        [prefs setInteger:5 forKey: @"numberOfSides"];
+    }
+    
+    [myPolygonShape initWithNumberOfSides:[prefs integerForKey: @"numberOfSides"] 
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
+
     // TODO [myPolygonView init];  // this caused iphone screen to not redraw poly
     [self updateInterface];
 }
@@ -51,9 +59,12 @@
 
 - (void)updateInterface { 
     NSLog([myPolygonShape description]);
-    [myPolygonView setNeedsDisplay];
     numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonShape.numberOfSides];
     
+    // see icodeblog.com iPhone Programming Tutorial – Saving/Retrieving Data Using NSUserDefaults 
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setInteger:myPolygonShape.numberOfSides forKey: @"numberOfSides"];
+
     if (myPolygonShape.numberOfSides > myPolygonShape.minimumNumberOfSides) {
         decreaseButton.enabled = YES;
         decreaseButton.alpha = 1.0f;
@@ -70,6 +81,8 @@
         increaseButton.enabled = NO;
         increaseButton.alpha = 0.5f;
     }
+    
+    [myPolygonView setNeedsDisplay];
 }
 
 @end
