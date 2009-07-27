@@ -9,7 +9,7 @@
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
     
     //[myPolygonView initWithFrame:CGRectMake(200., 200., 150., 200.)];
-    [myPolygonView init];
+    // TODO [myPolygonView init];  // this caused iphone screen to not redraw poly
     [self updateInterface];
 }
 

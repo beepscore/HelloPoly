@@ -3,7 +3,6 @@
 //  Created by Steve Baker on 7/12/09.
 //  Copyright 2009 Beepscore LLC. All rights reserved.
 //
-//#import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
 @interface PolygonShape : NSObject {

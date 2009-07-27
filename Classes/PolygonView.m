@@ -21,9 +21,6 @@
     return self;
 }
 
-//  TODO program draws pentagon, drawing doesn't update for new numberOfSides.
-//  Need to initialize myPolyPoints array at each call?
-//  [myPolyPoints release];  // I tried this at end of drawRect method, it gave error
 - (void)drawRect:(CGRect)rect {
     NSLog(@"drawRect method. myPolygonShape.numberOfSides = %d", myPolygonShape.numberOfSides);
     // Drawing code
@@ -77,7 +74,7 @@
     // Do any cleanup that’s necessary
     [myPolygonShape release];
     myPolygonShape = nil;
-    
+
     // Last, dealloc super class
     [super dealloc];
 }
