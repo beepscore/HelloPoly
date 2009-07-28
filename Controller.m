@@ -14,7 +14,11 @@
     
     [myPolygonShape initWithNumberOfSides:[prefs integerForKey: @"numberOfSides"] 
                      minimumNumberOfSides:3 maximumNumberOfSides:12];
-
+    
+    numberOfSidesSlider.minimumValue = myPolygonShape.minimumNumberOfSides;
+    numberOfSidesSlider.maximumValue = myPolygonShape.maximumNumberOfSides;
+    numberOfSidesSlider.value = myPolygonShape.numberOfSides;
+    
     // TODO [myPolygonView init];  // this caused iphone screen to not redraw poly
     [self updateInterface];
 }
@@ -57,9 +61,18 @@
     [self updateInterface];
 }
 
+- (IBAction)sliderAction{
+    NSLog(@"Controller sliderAction method");
+    // TODO update interface as slider is dragged, not just when it is released
+    // choose a different slider event in IB?
+    myPolygonShape.numberOfSides = numberOfSidesSlider.value;
+    [self updateInterface];
+}
+
 - (void)updateInterface { 
     NSLog([myPolygonShape description]);
     numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonShape.numberOfSides];
+    numberOfSidesSlider.value = myPolygonShape.numberOfSides;
     
     // see icodeblog.com iPhone Programming Tutorial – Saving/Retrieving Data Using NSUserDefaults 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];

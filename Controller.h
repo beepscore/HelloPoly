@@ -8,6 +8,7 @@
     IBOutlet UIButton *decreaseButton;
     IBOutlet UIButton *increaseButton;
     IBOutlet UILabel *numberOfSidesLabel;
+    IBOutlet UISlider *numberOfSidesSlider;
     
     // Controller reference to part of View
     IBOutlet PolygonView *myPolygonView;
@@ -18,6 +19,7 @@
 
 - (IBAction)decrease;
 - (IBAction)increase;
+- (IBAction)sliderAction;
 - (void)updateInterface;
 
 // TODO should I delete these from header, only visible from inside .m?
