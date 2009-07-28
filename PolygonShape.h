@@ -28,7 +28,6 @@
 - (id)initWithNumberOfSides:(int)sides;
 - (id)initWithNumberOfSides:(int)sides minimumNumberOfSides:(int)min maximumNumberOfSides:(int)max;
 
-// TODO delete dealloc from header, keep private to .m?
 // override default dealloc method
 - (void)dealloc;
 

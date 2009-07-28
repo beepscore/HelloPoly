@@ -19,12 +19,11 @@
 
 - (IBAction)decrease;
 - (IBAction)increase;
-- (IBAction)sliderAction;
+- (IBAction)sliderChanged:(id)sender;
 - (void)updateInterface;
 
-// TODO should I delete these from header, only visible from inside .m?
 // override default dealloc method
 //- (void)dealloc;
-//- (void)awakeFromNib;
+
 
 @end

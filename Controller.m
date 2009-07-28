@@ -18,8 +18,7 @@
     numberOfSidesSlider.minimumValue = myPolygonShape.minimumNumberOfSides;
     numberOfSidesSlider.maximumValue = myPolygonShape.maximumNumberOfSides;
     numberOfSidesSlider.value = myPolygonShape.numberOfSides;
-    
-    // TODO [myPolygonView init];  // this caused iphone screen to not redraw poly
+
     [self updateInterface];
 }
 
@@ -61,10 +60,8 @@
     [self updateInterface];
 }
 
-- (IBAction)sliderAction{
-    NSLog(@"Controller sliderAction method");
-    // TODO update interface as slider is dragged, not just when it is released
-    // choose a different slider event in IB?
+- (IBAction)sliderChanged:(id)sender{
+    NSLog(@"Controller sliderChanged method");
     myPolygonShape.numberOfSides = numberOfSidesSlider.value;
     [self updateInterface];
 }
