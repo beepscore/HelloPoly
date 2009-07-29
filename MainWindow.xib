@@ -160,6 +160,7 @@
 							<bytes key="NSRGB">MC45ODgyNTA1NSAwLjk4MzMzNzE2IDAuNzU0MDg1NgA</bytes>
 						</object>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 					<object class="IBUISlider" id="564643810">
 						<reference key="NSNextResponder" ref="380026005"/>

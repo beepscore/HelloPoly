@@ -76,7 +76,7 @@
 - (void)setMinimumNumberOfSides:(int)minSides { 
     #define MIN_SIDES 3
     if (minSides < MIN_SIDES) {
-        NSLog(@"Invalid minimum number of sides: %i is less than the minimum of %i allowed",
+        NSLog(@"Invalid minimum number of sides: %d is less than the minimum of %d allowed",
               minSides, (int)MIN_SIDES);
     }
     else minimumNumberOfSides = minSides;
@@ -85,7 +85,7 @@
 - (void)setMaximumNumberOfSides:(int)maxSides { 
     #define MAX_SIDES 12
     if (maxSides > MAX_SIDES) {
-        NSLog(@"Invalid maximum number of sides: %i is greater than the maximum of %i allowed",
+        NSLog(@"Invalid maximum number of sides: %d is greater than the maximum of %d allowed",
               maxSides, (int)MAX_SIDES);
     }
     else maximumNumberOfSides = maxSides;
@@ -96,12 +96,12 @@
     
     if (numSides < self.minimumNumberOfSides) {
         numbersOfSidesSatisfyConstraints = FALSE;
-        NSLog(@"Invalid number of sides: %i is less than the minimum of %i allowed",
+        NSLog(@"Invalid number of sides: %d is less than the minimum of %d allowed",
               numSides, self.minimumNumberOfSides);
     }
     if (numSides > self.maximumNumberOfSides) {
         numbersOfSidesSatisfyConstraints = FALSE;
-        NSLog(@"Invalid number of sides: %i is greater than the maximum of %i allowed",
+        NSLog(@"Invalid number of sides: %d is greater than the maximum of %d allowed",
               numSides, self.maximumNumberOfSides);
     }
     if (self.minimumNumberOfSides > self.maximumNumberOfSides) {

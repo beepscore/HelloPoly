@@ -7,11 +7,14 @@
 //
 #import "PolygonView.h"
 #import "PolygonShape.h"
+#import "CGPointUtils.h"
 
 @implementation PolygonView
 
 // properties
 @synthesize gestureStartPoint;
+@synthesize initialDistance;
+
 //methods
 
 - (id)initWithFrame:(CGRect)frame {
@@ -73,24 +76,58 @@
     return result; 
 } 
 
-// TODO add argument rotation angle (and remove degrees to radians?)
 - (void)rotatePolygonView:(float)angleInDegrees {    
     // see http://iphonedevelopment.blogspot.com/2008/10/demystifying-cgaffinetransform.html
     self.transform = CGAffineTransformRotate(self.transform, degreesToRadians(angleInDegrees));
-    //self.transform = CGAffineTransformScale(self.transform, 0.98, 0.98);
+}
+
+- (void)scalePolygonView:(float)scaleFactor {
+    // range scale from 0.1 to 1
+    float scaleRanged = MIN(MAX(scaleFactor, 0.9), 1.1);
+    self.transform = CGAffineTransformScale(self.transform, scaleRanged, scaleRanged);
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    gestureStartPoint = [touch locationInView:self];
+    if ([touches count] == 2) {
+        NSArray *twoTouches = [touches allObjects];
+        UITouch *first = [twoTouches objectAtIndex:0];
+        UITouch *second = [twoTouches objectAtIndex:1];
+        initialDistance = distanceBetweenPoints(
+            [first locationInView:self], [second locationInView:self]);
+    }
+    else {
+        UITouch *touch = [touches anyObject];
+       gestureStartPoint = [touch locationInView:self];
+    }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint currentPosition = [touch locationInView:self];
-    CGFloat deltaX = (gestureStartPoint.x - currentPosition.x);
-    if (fabsf(deltaX) >= kMinimumGestureLength) {
+    if ([touches count] == 2) {
+        NSArray *twoTouches = [touches allObjects];
+        UITouch *first = [twoTouches objectAtIndex:0];
+        UITouch *second = [twoTouches objectAtIndex:1];
+        CGFloat currentDistance = distanceBetweenPoints(
+            [first locationInView:self], [second locationInView:self]);
+        NSLog(@"touches count = %d  currentDistance = %3.2f", [touches count], currentDistance);
+        if (initialDistance == 0)
+            initialDistance = currentDistance;
+        else if (currentDistance - initialDistance > kMinimumPinchDelta) {
+            // outward pinch
+            [self scalePolygonView:1.05]; 
+        }
+        else if (currentDistance - initialDistance <  -kMinimumPinchDelta) {
+             //inward pinch
+             [self scalePolygonView:0.95]; 
+        }   
+
+    }
+    else {
+        UITouch *touch = [touches anyObject];
+        CGPoint currentPosition = [touch locationInView:self];
+        CGFloat deltaX = (gestureStartPoint.x - currentPosition.x);
+        if (fabsf(deltaX) >= kMinimumGestureLength) {
         [self rotatePolygonView: (-10*(int)(deltaX/10.))];
+        }
     }
 }
 
