@@ -11,7 +11,7 @@
 @implementation PolygonView
 
 // properties
-
+@synthesize gestureStartPoint;
 //methods
 
 - (id)initWithFrame:(CGRect)frame {
@@ -27,8 +27,8 @@
     // draw background
     // background fill was set in IB
     // stroke border
-    [[UIColor blackColor] setStroke]; 
-    UIRectFrame(rect);
+    //[[UIColor blackColor] setStroke]; 
+    //UIRectFrame(rect);
     
     NSArray *myPolyPoints = [PolygonView pointsForPolygonInRect: rect
                                 numberOfSides: myPolygonShape.numberOfSides];
@@ -72,6 +72,27 @@
     } 
     return result; 
 } 
+
+// TODO add argument rotation angle (and remove degrees to radians?)
+- (void)rotatePolygonView:(float)angleInDegrees {    
+    // see http://iphonedevelopment.blogspot.com/2008/10/demystifying-cgaffinetransform.html
+    self.transform = CGAffineTransformRotate(self.transform, degreesToRadians(angleInDegrees));
+    //self.transform = CGAffineTransformScale(self.transform, 0.98, 0.98);
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    gestureStartPoint = [touch locationInView:self];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint currentPosition = [touch locationInView:self];
+    CGFloat deltaX = (gestureStartPoint.x - currentPosition.x);
+    if (fabsf(deltaX) >= kMinimumGestureLength) {
+        [self rotatePolygonView: (-10*(int)(deltaX/10.))];
+    }
+}
 
 // override default dealloc method
 - (void)dealloc { 
