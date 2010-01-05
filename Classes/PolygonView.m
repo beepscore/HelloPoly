@@ -134,8 +134,7 @@
 // override default dealloc method
 - (void)dealloc { 
     // Do any cleanup that’s necessary
-    [myPolygonShape release];
-    myPolygonShape = nil;
+    [myPolygonShape release], myPolygonShape = nil;
 
     // Last, dealloc super class
     [super dealloc];

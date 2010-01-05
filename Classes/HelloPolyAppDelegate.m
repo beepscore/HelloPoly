@@ -19,7 +19,7 @@
 }
 
 - (void)dealloc {
-    [window release];
+    [window release], window = nil;
     [super dealloc];
 }
 

@@ -35,14 +35,10 @@
     // After everyone releases references, that portion of heap memory may be written to by anyone.
     // Accidentally using the pointer to the old location could work or could crash.
     // These bugs can show up intermittently/infrequently and can be very hard to debug.
-    [decreaseButton release];
-    decreaseButton = nil;
-    [increaseButton release];
-    increaseButton = nil;
-    [myPolygonShape release];
-    myPolygonShape = nil;
-    [myPolygonView release];
-    myPolygonView = nil;
+    [decreaseButton release], decreaseButton = nil;
+    [increaseButton release], increaseButton = nil;
+    [myPolygonShape release], myPolygonShape = nil;
+    [myPolygonView release], myPolygonView = nil;
 
     // Last, dealloc super class
     [super dealloc];
@@ -67,7 +63,7 @@
 }
 
 - (void)updateInterface { 
-    NSLog([myPolygonShape description]);
+    NSLog(@"%@", [myPolygonShape description]);
     numberOfSidesLabel.text = [NSString stringWithFormat:@"%d", myPolygonShape.numberOfSides];
     numberOfSidesSlider.value = myPolygonShape.numberOfSides;
     
